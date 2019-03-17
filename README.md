@@ -1,5 +1,7 @@
 # sandbox-vue-bottom-menu
 
+[![CircleCI](https://circleci.com/gh/mstssk/sandbox-vue-bottom-menu.svg?style=svg)](https://circleci.com/gh/mstssk/sandbox-vue-bottom-menu)
+
 ## Project setup
 ```
 npm install
