@@ -5,7 +5,15 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <slot></slot>
+    <h3 class="header">
+      <slot name="header"></slot>
+    </h3>
+    <div class="body">
+      <slot></slot>
+    </div>
+    <div class="footer">
+      <slot name="footer"></slot>
+    </div>
   </dialog>
 </template>
 
@@ -15,9 +23,9 @@
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 
 @Component({
-  name: "v-bottom-menu"
+  name: "v-material-dialog"
 })
-export default class VBottomMenu extends Vue {
+export default class VMaterialDialog extends Vue {
   show() {
     this.dialog.showModal();
   }
@@ -40,19 +48,37 @@ export default class VBottomMenu extends Vue {
 
 <style scoped lang="scss">
 dialog {
-  padding: 0;
+  //   padding: 0;
   margin: 0;
 
-  bottom: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   position: fixed;
-  width: 100vw;
-  max-width: 640px;
+  width: 500px;
+  max-width: 90vw;
 
   border: none;
-  box-shadow: 0 0 1em black;
+  box-shadow: 0 0 0.5rem black;
 }
 
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.header {
+  margin-top: 0;
+  text-align: left;
+}
+.body {
+  text-align: left;
+  color: #424242;
+}
+.footer {
+  text-align: right;
+
+  button {
+    text-transform: uppercase;
+  }
 }
 </style>
