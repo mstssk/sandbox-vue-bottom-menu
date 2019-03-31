@@ -79,6 +79,14 @@ dialog::backdrop {
 
   button {
     text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px;
+    width: 64px;
+    border: none;
+    &:hover {
+      background:#00000022;
+    }
   }
 }
 </style>
