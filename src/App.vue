@@ -1,15 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <img alt="Vue logo" src="./assets/logo.png">
 
-    <hr />
+    <hr>
 
     <button @click="$refs.dialog.show()">ダイアログ開く</button>
     <v-material-dialog ref="dialog">
-      <template #header
-        >This is dialog.</template
-      >
-
+      <template #header>{{ title }}</template>
       This is material dialog.
       <template #footer>
         <button>Cancel</button>
@@ -32,11 +29,13 @@
 
     <hr />
 
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />-->
   </div>
 </template>
 
 <script lang="ts">
+// https://developer.mozilla.org/ja/docs/Web/API/HTMLDialogElement
+// https://jp.vuejs.org/v2/guide/components-custom-events.html
 import { Component, Vue } from "vue-property-decorator";
 import HelloWorld from "./components/HelloWorld.vue";
 import VBottomMenu from "./components/VBottomMenu.vue";
@@ -50,7 +49,10 @@ import VMaterialDialog from "./components/VMaterialDialog.vue";
   }
 })
 export default class App extends Vue {
-  open = false;
+  title = "This is dialog.";
+  body = "body";
+
+  // open = false;
 
   alert() {
     alert(1);
