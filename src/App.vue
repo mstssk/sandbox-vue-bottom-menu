@@ -6,13 +6,22 @@
 
     <button @click="$refs.dialog.show()">ダイアログ開く</button>
     <v-material-dialog ref="dialog">
-      <template #header>{{ title }}</template>
+      <template #header>This is dialog.</template>
       This is material dialog.
       <template #footer>
         <button>Cancel</button>
         <button>OK</button>
       </template>
     </v-material-dialog>
+
+    <hr>
+
+    <button @click="$refs.dialogWithProps.show()">スコープ付きプロパティのダイアログ開く</button>
+    <v-material-dialog-with-scoped-props ref="dialogWithProps">
+      <template #header>{{ title }}</template>
+      This is material dialog.
+      <template #footer="dialogProps"></template>
+    </v-material-dialog-with-scoped-props>
 
     <!-- <hr />
 
@@ -40,17 +49,26 @@ import { Component, Vue } from "vue-property-decorator";
 import HelloWorld from "./components/HelloWorld.vue";
 import VBottomMenu from "./components/VBottomMenu.vue";
 import VMaterialDialog from "./components/VMaterialDialog.vue";
+import VMaterialDialogWithScopedProps from "./components/VMaterialDialogWithScopedProps.vue";
 
 @Component({
   components: {
     HelloWorld,
     VBottomMenu,
-    VMaterialDialog
+    VMaterialDialog,
+    VMaterialDialogWithScopedProps
   }
 })
 export default class App extends Vue {
   title = "This is dialog.";
   body = "body";
+
+  dialogProps = {
+    footer: {
+      cancel: true,
+      ok: true
+    }
+  };
 
   // open = false;
 
