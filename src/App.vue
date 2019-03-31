@@ -17,7 +17,7 @@
       </template>
     </v-material-dialog>
 
-    <hr />
+    <!-- <hr />
 
     <button @click="$refs.menu.show()">ボトムシート開く</button>
     <v-bottom-menu ref="menu">
@@ -32,7 +32,7 @@
 
     <hr />
 
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
   </div>
 </template>
 
